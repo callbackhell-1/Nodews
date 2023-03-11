@@ -7,8 +7,27 @@ function requestHandler(req, res) {
   res.writeHead("200", { "content-type": "text/html" });
   //   res.end("<h1>Hello Node</h1>");
 
-  // reading from html
-  fs.readFile("./index.html", (err, data) => {
+  let filePath;
+  switch (req.url) {
+    case "/":
+      filePath = "./index.html";
+      break;
+
+    case "/about":
+      filePath = "./about.html";
+      break;
+
+    case "/profile":
+      filePath = "./profile.html";
+      break;
+
+    default:
+      filePath = "./404.html";
+      break;
+  }
+
+  //   reading from html
+  fs.readFile(filePath, (err, data) => {
     if (err) {
       console.log(err);
     }
