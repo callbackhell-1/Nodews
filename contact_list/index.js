@@ -1,15 +1,20 @@
 const express = require("express");
+const path = require("path");
 const port = 8000;
 
 const app = express();
 
+app.set("view engine", "ejs");
+// console.log(__dirname);
+app.set("views", path.join(__dirname, "views"));
+
 app.get("/", (req, res) => {
-  res.end("<h1>Hello from Express js</h1>");
+  return res.render("home");
 });
 
-app.get("/contactus",(req,res)=>{
-    res.end("<h1>Thanks for contacting us !</h1>")
-})
+app.get("/contactus", (req, res) => {
+  res.end("<h1>Thanks for contacting us !</h1>");
+});
 
 app.listen(port, (err) => {
   if (err) {
