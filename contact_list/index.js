@@ -35,8 +35,9 @@ app.get("/practice", (req, res) => {
   });
 });
 
-app.get("/contactus", (req, res) => {
-  res.end("<h1>Thanks for contacting us !</h1>");
+app.post("/create-contact", (req, res) => {
+  console.log(req);
+  // return res.redirect("/practice");
 });
 
 app.listen(port, (err) => {
