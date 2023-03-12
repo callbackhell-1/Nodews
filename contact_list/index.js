@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const bodyParser = require("body-parser");
 const port = 8000;
 
 const app = express();
@@ -7,7 +8,9 @@ const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-var contactLst = [
+app.use(bodyParser.urlencoded({ extended: false }));
+
+var contactList = [
   {
     name: "John Wick",
     phone: "2222",
@@ -25,7 +28,7 @@ var contactLst = [
 app.get("/", (req, res) => {
   return res.render("home", {
     title: "Contact List",
-    contacts_list: contactLst,
+    contacts_list: contactList,
   });
 });
 
@@ -36,7 +39,12 @@ app.get("/practice", (req, res) => {
 });
 
 app.post("/create-contact", (req, res) => {
-  console.log(req);
+  // console.log(req.body);
+  // console.log(req.body.name);
+  // console.log(req.body.phone);
+  contactList.push(req.body);
+  return res.redirect("/");
+
   // return res.redirect("/practice");
 });
 
