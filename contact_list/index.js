@@ -9,7 +9,9 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.get("/", (req, res) => {
-  return res.render("home");
+  return res.render("home", {
+    name: "John",
+  });
 });
 
 app.get("/contactus", (req, res) => {
