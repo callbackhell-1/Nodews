@@ -5,12 +5,27 @@ const port = 8000;
 const app = express();
 
 app.set("view engine", "ejs");
-// console.log(__dirname);
 app.set("views", path.join(__dirname, "views"));
+
+var contactLst = [
+  {
+    name: "John Wick",
+    phone: "2222",
+  },
+  {
+    name: "John cena",
+    phone: "123",
+  },
+  {
+    name: "Bruce wayne",
+    phone: "8888",
+  },
+];
 
 app.get("/", (req, res) => {
   return res.render("home", {
-    name: "John",
+    title: "Contact List",
+    contacts_list: contactLst,
   });
 });
 
