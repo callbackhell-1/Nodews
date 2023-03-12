@@ -14,6 +14,12 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/practice", (req, res) => {
+  res.render("practice", {
+    title: "Practice",
+  });
+});
+
 app.get("/contactus", (req, res) => {
   res.end("<h1>Thanks for contacting us !</h1>");
 });
