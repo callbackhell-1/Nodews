@@ -10,6 +10,14 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
+// MiddleWare
+app.use(function(req,res,next){
+  console.log("MW1");
+  next();
+})
+
+
 var contactList = [
   {
     name: "John Wick",
@@ -39,13 +47,11 @@ app.get("/practice", (req, res) => {
 });
 
 app.post("/create-contact", (req, res) => {
-  // console.log(req.body);
-  // console.log(req.body.name);
-  // console.log(req.body.phone);
+
   contactList.push(req.body);
   return res.redirect("/");
 
-  // return res.redirect("/practice");
+  
 });
 
 app.listen(port, (err) => {
