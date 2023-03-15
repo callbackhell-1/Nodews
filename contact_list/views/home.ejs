@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%=title%></title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"
+    />
+    <!-- our css should below over other css link -->
     <link rel="stylesheet" href="/css/home.css" />
   </head>
   <body>
@@ -17,6 +22,12 @@
           <p><%=i.name%></p>
           <p><%=i.phone%></p>
         </li>
+
+        <div class="delete-button">
+          <a href="">
+            <i class="fas fa-window-close"></i>
+          </a>
+        </div>
 
         <% } %>
       </ul>
@@ -37,8 +48,8 @@
         placeholder="Enter your phone.."
         required
       />
-      <button type="submit">Add Contact</button>
+      <button id="submit" type="submit">Add</button>
     </form>
-  <script  src="/js/home.js"></script>
+    <script src="/js/home.js"></script>
   </body>
 </html>
